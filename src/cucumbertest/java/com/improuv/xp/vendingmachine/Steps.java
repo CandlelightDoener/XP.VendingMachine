@@ -34,13 +34,13 @@ public class Steps {
         vendingMachine.pressButton(drinkName);
     }
 
-    @Then("^no can appears in the compartment$")
-    public void noCanAppearsInTheCompartment() throws Throwable {
+    @Then("^no can is in the compartment$")
+    public void noCanIsInTheCompartment() throws Throwable {
         assertThat(vendingMachine.hasCanInCompartment(), is(false));
     }
 
-    @Then("^a \"([^\"]*)\" can appears in the compartment$")
-    public void aCanAppearsInTheCompartment(String drinkName) throws Throwable {
+    @Then("^a \"([^\"]*)\" is in the compartment$")
+    public void aIsInTheCompartment(String drinkName) throws Throwable {
         assertThat(vendingMachine.hasCanInCompartment(drinkName), is(true));
     }
 
