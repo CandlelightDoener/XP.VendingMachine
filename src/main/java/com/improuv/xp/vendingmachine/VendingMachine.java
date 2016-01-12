@@ -4,7 +4,7 @@ public class VendingMachine {
     private boolean filled;
     private String emptyDrawer;
     private String buttonPressed;
-    private boolean compartmentCleared;
+    private boolean compartmentEmpty;
 
     public void pressButton(String drinkName) {
         buttonPressed = drinkName;
@@ -43,6 +43,6 @@ public class VendingMachine {
     }
 
     public void clearCompartment() {
-        compartmentCleared = true;
+        compartmentEmpty = true;
     }
 }
