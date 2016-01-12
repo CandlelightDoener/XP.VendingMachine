@@ -1,9 +1,12 @@
 package com.improuv.xp.vendingmachine;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertTrue;
 
 public class Steps {
@@ -22,6 +25,16 @@ public class Steps {
 
     @Then("^a can appears in the compartment$")
     public void aCanAppearsInTheCompartment() throws Throwable {
-        assertTrue(vendingMachine.hasCanInCompartment());
+        assertThat(vendingMachine.hasCanInCompartment(), is(true));
+    }
+
+    @Given("^an empty vending machine$")
+    public void anEmptyVendingMachine() throws Throwable {
+        vendingMachine = new VendingMachine();
+    }
+
+    @Then("^no can appears in the compartment$")
+    public void noCanAppearsInTheCompartment() throws Throwable {
+        assertThat(vendingMachine.hasCanInCompartment(), is(false));
     }
 }
