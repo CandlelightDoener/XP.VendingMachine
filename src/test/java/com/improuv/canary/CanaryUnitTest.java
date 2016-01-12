@@ -1,3 +1,5 @@
+package com.improuv.canary;
+
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
