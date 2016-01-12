@@ -1,7 +1,5 @@
 package com.improuv.xp.vendingmachine;
 
-import cucumber.api.PendingException;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -56,6 +54,6 @@ public class Steps {
 
     @Then("^there is (\\d+) cans of \"([^\"]*)\" left$")
     public void thereIsCansOfLeft(int amount, String drinkName) throws Throwable {
-        assertThat(vendingMachine.hasCansInside(drinkName), is(amount));
+        assertThat(vendingMachine.noOfCansInside(drinkName), is(amount));
     }
 }

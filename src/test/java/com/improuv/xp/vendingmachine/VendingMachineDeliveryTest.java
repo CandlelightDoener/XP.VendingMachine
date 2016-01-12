@@ -48,4 +48,6 @@ public class VendingMachineDeliveryTest {
         vendingMachine.pressButton("bbb");
         assertThat(vendingMachine.hasCanInCompartment("aaa"), is(false));
     }
+
+
 }

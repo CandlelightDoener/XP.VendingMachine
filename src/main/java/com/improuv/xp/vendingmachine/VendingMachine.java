@@ -1,8 +1,14 @@
 package com.improuv.xp.vendingmachine;
 
 public class VendingMachine {
-    private boolean filled;
-    private String emptyDrawer;
+    private boolean filled; //deprecated after this feature
+
+    //TODO: find common concept
+    private String filledInDrink;
+    private int filledInNumberOfDrinks;
+
+    private String emptyDrawer; //deprecated after this feature
+
     private Compartment compartment = new Compartment();
 
     public void pressButton(String drinkName) {
@@ -18,6 +24,7 @@ public class VendingMachine {
         return compartment.hasCan(drinkName);
     }
 
+    //später wird im AT statt fill() ein paar mal addCans(x,y) aufgerufen
     public void fill() {
         filled = true;
     }
@@ -30,10 +37,15 @@ public class VendingMachine {
         compartment.clear();
     }
 
-    public int hasCansInside(String drinkName) {
-        return -1;
+    public int noOfCansInside(String drinkName) {
+        if(filledInDrink != null)
+            return filledInNumberOfDrinks;
+
+        return 0;
     }
 
     public void addCans(int amount, String drinkName) {
+        filledInDrink = drinkName;
+        filledInNumberOfDrinks = amount;
     }
 }
