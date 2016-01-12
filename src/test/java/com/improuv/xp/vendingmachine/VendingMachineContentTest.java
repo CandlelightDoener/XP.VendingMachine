@@ -21,17 +21,10 @@ public class VendingMachineContentTest {
     }
 
     @Test
-    public void afterAddingCans_theyAreInside() throws Exception {
-        vendingMachine.addCans(3,"Coke");
-        assertThat(vendingMachine.noOfCansInside("Coke"), is(3));
-    }
-
-    @Test
-    public void thereCanBeMultipleDrinksInside() throws Exception {
+    public void deliveringCanReducesDrinksInside() throws Exception {
         vendingMachine.addCans(2,"Coke");
-        vendingMachine.addCans(4,"Fanta");
-        assertThat(vendingMachine.noOfCansInside("Coke"), is(2));
-        assertThat(vendingMachine.noOfCansInside("Fanta"), is(4));
+        vendingMachine.pressButton("Coke");
+        assertThat(vendingMachine.noOfCansInside("Coke"), is(1));
     }
 
     @Test
@@ -40,10 +33,5 @@ public class VendingMachineContentTest {
         assertThat(vendingMachine.noOfCansInside("Coke"), is(0));
     }
 
-    @Test
-    public void deliveringCanReducesDrinksInside() throws Exception {
-        vendingMachine.addCans(2,"Coke");
-        vendingMachine.pressButton("Coke");
-        assertThat(vendingMachine.noOfCansInside("Coke"), is(1));
-    }
+
 }
