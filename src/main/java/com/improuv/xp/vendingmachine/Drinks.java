@@ -8,7 +8,13 @@ public class Drinks {
     private Map<String, Integer>drinks = new HashMap<String, Integer>();
 
     void decreaseAmountOfCans(String drinkName) {
+        if(drinks.get(drinkName) == null)
+            throw new IllegalStateException("Can't reduce number of cans for unknown drink " + drinkName);
         int newAmount = drinks.get(drinkName) - 1;
+
+        if(newAmount < 0)
+            throw new IllegalStateException("Can't reduce number of " + drinkName + " cans  below zero");
+
         drinks.put(drinkName, newAmount);
     }
 
@@ -29,6 +35,9 @@ public class Drinks {
     }
 
     void addCans(int amount, String drinkName) {
+        if(amount < 0)
+            throw new IllegalStateException("Can't add negative number of cans");
+
         if(drinks.containsKey(drinkName)) {
             amount += drinks.get(drinkName);
         }

@@ -28,4 +28,20 @@ public class DrinksTest {
         assertThat(drinks.amountOfCans("Coke"), is(2));
         assertThat(drinks.amountOfCans("Fanta"), is(4));
     }
+
+    @Test(expected = IllegalStateException.class)
+    public void cannotDecreaseAmountOfCansForUnknownDrink() throws Exception {
+        drinks.decreaseAmountOfCans("Coke");
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void cannotDecreaseAmountOfCansBelowZero() throws Exception {
+        drinks.addCans(0,"Coke");
+        drinks.decreaseAmountOfCans("Coke");
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void cannotAddNegativeNumberOfCans() throws Exception {
+        drinks.addCans(-1,"Coke");
+    }
 }
