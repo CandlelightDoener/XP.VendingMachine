@@ -11,7 +11,7 @@ public class VendingMachine {
     }
 
     public boolean hasCanInCompartment() {
-        return compartment.isEmpty();
+        return ! compartment.isEmpty();
     }
 
     public boolean hasCanInCompartment(String drinkName) {
