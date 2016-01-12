@@ -43,4 +43,9 @@ public class Steps {
     public void aCanAppearsInTheCompartment(String drinkName) throws Throwable {
         assertThat(vendingMachine.hasCanInCompartment(drinkName), is(true));
     }
+
+    @And("^I clear the compartment$")
+    public void iClearTheCompartment() throws Throwable {
+        vendingMachine.clearCompartment();
+    }
 }

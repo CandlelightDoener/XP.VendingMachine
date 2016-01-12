@@ -4,6 +4,7 @@ public class VendingMachine {
     private boolean filled;
     private String emptyDrawer;
     private String buttonPressed;
+    private boolean compartmentCleared;
 
     public void pressButton(String drinkName) {
         buttonPressed = drinkName;
@@ -11,6 +12,26 @@ public class VendingMachine {
 
     public boolean hasCanInCompartment() {
         return hasCanInCompartment(buttonPressed);
+    }
+
+    public boolean hasCanInCompartment(String drinkName) {
+        if (!filled) {
+            return false;
+        }
+
+        if (buttonPressed == null) {
+            return false;
+        }
+
+        if (buttonPressed.equals(emptyDrawer)) {
+            return false;
+        }
+
+        if (!buttonPressed.equals(drinkName)) {
+            return false;
+        }
+
+        return true;
     }
 
     public void fill() {
@@ -21,9 +42,7 @@ public class VendingMachine {
         emptyDrawer = drinkName;
     }
 
-    public boolean hasCanInCompartment(String drinkName) {
-        if(filled && buttonPressed != null && !buttonPressed.equals(emptyDrawer) && buttonPressed.equals(drinkName))
-            return true;
-        return false;
+    public void clearCompartment() {
+        compartmentCleared = true;
     }
 }

@@ -18,3 +18,9 @@ Feature: Driving the Design of our Vending Machine
     And it ran out of "Coke"
     When I press the "Coke" button
     Then no can appears in the compartment
+
+  Scenario: Clearing the compartment
+    Given a filled vending machine
+    When I press the "Coke" button
+    And I clear the compartment
+    Then no can appears in the compartment
