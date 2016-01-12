@@ -3,35 +3,19 @@ package com.improuv.xp.vendingmachine;
 public class VendingMachine {
     private boolean filled;
     private String emptyDrawer;
-    private String buttonPressed;
-    private boolean compartmentEmpty;
+    private Compartment compartment = new Compartment();
 
     public void pressButton(String drinkName) {
-        buttonPressed = drinkName;
+        if(filled && !drinkName.equals(emptyDrawer))
+            compartment.add(drinkName);
     }
 
     public boolean hasCanInCompartment() {
-        return hasCanInCompartment(buttonPressed);
+        return compartment.isEmpty();
     }
 
     public boolean hasCanInCompartment(String drinkName) {
-        if (!filled) {
-            return false;
-        }
-
-        if (buttonPressed == null) {
-            return false;
-        }
-
-        if (buttonPressed.equals(emptyDrawer)) {
-            return false;
-        }
-
-        if (!buttonPressed.equals(drinkName)) {
-            return false;
-        }
-
-        return true;
+        return compartment.hasCan(drinkName);
     }
 
     public void fill() {
@@ -43,6 +27,6 @@ public class VendingMachine {
     }
 
     public void clearCompartment() {
-        compartmentEmpty = true;
+        compartment.clear();
     }
 }
