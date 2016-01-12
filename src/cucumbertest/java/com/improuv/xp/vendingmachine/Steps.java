@@ -43,4 +43,9 @@ public class Steps {
     public void noCanAppearsInTheCompartment() throws Throwable {
         assertThat(vendingMachine.hasCanInCompartment(), is(false));
     }
+
+    @Then("^a \"([^\"]*)\" can appears in the compartment$")
+    public void aCanAppearsInTheCompartment(String drinkName) throws Throwable {
+        assertThat(vendingMachine.hasCanInCompartment(drinkName), is(true));
+    }
 }

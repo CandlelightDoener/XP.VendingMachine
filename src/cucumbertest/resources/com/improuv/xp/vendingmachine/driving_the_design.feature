@@ -6,7 +6,7 @@ Feature: Driving the Design of our Vending Machine
   Scenario: Filled machine delivers can
     Given a filled vending machine
     When I press the "Coke" button
-    Then a can appears in the compartment
+    Then a "Coke" can appears in the compartment
 
   Scenario: Empty machine delivers nothing
     Given an empty vending machine

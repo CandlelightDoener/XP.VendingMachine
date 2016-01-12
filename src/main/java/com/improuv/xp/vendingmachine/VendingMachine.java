@@ -23,4 +23,8 @@ public class VendingMachine {
     public void clearDrawer(String drinkName) {
         emptyDrawer = drinkName;
     }
+
+    public boolean hasCanInCompartment(String drinkName) {
+        return true;
+    }
 }
