@@ -33,4 +33,17 @@ public class VendingMachineContentTest {
         assertThat(vendingMachine.noOfCansInside("Coke"), is(2));
         assertThat(vendingMachine.noOfCansInside("Fanta"), is(4));
     }
+
+    @Test
+    public void drinksReducedOnlyWhenEnoughDrinksInside() throws Exception {
+        vendingMachine.pressButton("Coke");
+        assertThat(vendingMachine.noOfCansInside("Coke"), is(0));
+    }
+
+    @Test
+    public void deliveringCanReducesDrinksInside() throws Exception {
+        vendingMachine.addCans(2,"Coke");
+        vendingMachine.pressButton("Coke");
+        assertThat(vendingMachine.noOfCansInside("Coke"), is(1));
+    }
 }

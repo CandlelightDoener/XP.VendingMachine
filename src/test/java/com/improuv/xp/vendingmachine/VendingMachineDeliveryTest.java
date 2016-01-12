@@ -27,27 +27,9 @@ public class VendingMachineDeliveryTest {
     }
 
     @Test
-    public void filledMachine_deliversAnything_whenButtonPresssed() throws Exception {
-        vendingMachine.fill();
-        vendingMachine.pressButton("blubb 1234 :-)");
-        assertThat(vendingMachine.hasCanInCompartment("blubb 1234 :-)"), is(true));
+    public void filledMachine_deliversCan_whenButtonPresssed() throws Exception {
+        vendingMachine.addCans(1, "blubb");
+        vendingMachine.pressButton("blubb");
+        assertThat(vendingMachine.hasCanInCompartment("blubb"), is(true));
     }
-
-    @Test
-    public void filledMachine_whichRanOutOfDrink_wontDeliverDrink() throws Exception {
-        vendingMachine.fill();
-        vendingMachine.clearDrawer("asdf");
-        vendingMachine.pressButton("asdf");
-        assertThat(vendingMachine.hasCanInCompartment("asdf"), is(false));
-    }
-
-    @Test
-    public void filledMachine_whichRanOutOfDrink_willStillDeliverOtherDrink() throws Exception {
-        vendingMachine.fill();
-        vendingMachine.clearDrawer("aaa");
-        vendingMachine.pressButton("bbb");
-        assertThat(vendingMachine.hasCanInCompartment("aaa"), is(false));
-    }
-
-
 }

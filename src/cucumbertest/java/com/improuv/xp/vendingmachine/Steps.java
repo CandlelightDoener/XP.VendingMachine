@@ -14,17 +14,13 @@ public class Steps {
     @Given("^a filled vending machine$")
     public void aFilledVendingMachine() throws Throwable {
         vendingMachine = new VendingMachine();
-        vendingMachine.fill();
+        vendingMachine.addCans(3,"Coke");
+        vendingMachine.addCans(3,"Fanta");
     }
 
     @Given("^an empty vending machine$")
     public void anEmptyVendingMachine() throws Throwable {
         vendingMachine = new VendingMachine();
-    }
-
-    @Given("^it ran out of \"([^\"]*)\"$")
-    public void itRanOutOf(String drinkName) throws Throwable {
-        vendingMachine.clearDrawer(drinkName);
     }
 
     @Given("^(\\d+) cans of \"([^\"]*)\"$")
