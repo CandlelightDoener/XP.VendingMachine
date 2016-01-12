@@ -46,7 +46,6 @@ public class Steps {
 
     @And("^I clear the compartment$")
     public void iClearTheCompartment() throws Throwable {
-        throw new PendingException();
-        //vendingMachine.clearCompartment();
+        vendingMachine.clearCompartment();
     }
 }
