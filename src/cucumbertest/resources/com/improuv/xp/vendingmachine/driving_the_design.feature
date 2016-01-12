@@ -24,3 +24,10 @@ Feature: Driving the Design of our Vending Machine
     When I press the "Coke" button
     And I clear the compartment
     Then no can is in the compartment
+
+  Scenario: Compartment can hold more cans
+    Given a filled vending machine
+    When I press the "Coke" button
+    And I press the "Fanta" button
+    Then a "Coke" is in the compartment
+    And a "Fanta" is in the compartment
