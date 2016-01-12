@@ -4,7 +4,7 @@ public class VendingMachine {
     public void pressButton() {
     }
 
-    public boolean threwOutCan() {
+    public boolean hasCanInCompartment() {
         return true;
     }
 }

@@ -16,13 +16,14 @@ public class Steps {
         vendingMachine = new VendingMachine();
     }
 
-    @When("^I press some button$")
-    public void iPressSomeButton() throws Throwable {
-        vendingMachine.pressButton();
+    @When("^I press the \"([^\"]*)\" button$")
+    public void iPressTheButton(String drinkName) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 
-    @Then("^a can is thrown out$")
-    public void aCanIsThrownOut() throws Throwable {
-        assertTrue(vendingMachine.threwOutCan());
+    @Then("^a can appears in the compartment$")
+    public void aCanAppearsInTheCompartment() throws Throwable {
+        assertTrue(vendingMachine.hasCanInCompartment());
     }
 }

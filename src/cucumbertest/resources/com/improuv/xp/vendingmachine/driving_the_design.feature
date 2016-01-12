@@ -5,5 +5,5 @@ Feature: Driving the Design of our Vending Machine
 
   Scenario: Throw out can when some button pressed
     Given a filled vending machine
-    When I press some button
-    Then a can is thrown out
+    When I press the "Coke" button
+    Then a can appears in the compartment
