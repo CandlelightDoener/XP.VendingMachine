@@ -6,12 +6,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- * Simply run this class, either in your IDE or on your command line. It will
- * pick up all the feature files in the resources under
- * com.improuv.vendingmachine.controller.cucumber and run them as Cucumber tests.
+ * Simply run this class as JUnit Test, either in your IDE or on your command
+ * line. It will pick up all the feature files (written in Gherkin) under
+ * resources/com.improuv.canary and execute them.
  *
- * You need to write some glue code which maps the steps from your feature files
- * to your business code. Do this e.g. in the 'Steps' class.
+ * In general, you need to write some glue code which maps the steps in your
+ * feature files to your business code. Put them e.g. in your
+ * "CanaryCucumberSteps" class.
+ *
+ * If you're lucky your IDE supports you mapping Gherkin to glue code. If not,
+ * just run the tests and find code-snippets for the missing parts in the
+ * console output.
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = "html:build/cucumber-html-report")
