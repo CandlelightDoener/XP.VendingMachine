@@ -12,3 +12,9 @@ Feature: Driving the Design of our Vending Machine
     Given an empty vending machine
     When I press the "Coke" button
     Then no can appears in the compartment
+
+  Scenario: Empty machine delivers nothing
+    Given a filled vending machine
+    And it ran out of "Coke"
+    When I press the "Coke" button
+    Then no can appears in the compartment

@@ -1,13 +1,13 @@
 package com.improuv.xp.vendingmachine;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertTrue;
 
 public class Steps {
 
@@ -19,6 +19,16 @@ public class Steps {
         vendingMachine.fill();
     }
 
+    @Given("^an empty vending machine$")
+    public void anEmptyVendingMachine() throws Throwable {
+        vendingMachine = new VendingMachine();
+    }
+
+    @And("^it ran out of \"([^\"]*)\"$")
+    public void itRanOutOf(String drinkName) throws Throwable {
+        vendingMachine.clearDrawer(drinkName);
+    }
+
     @When("^I press the \"([^\"]*)\" button$")
     public void iPressTheButton(String drinkName) throws Throwable {
         vendingMachine.pressButton(drinkName);
@@ -27,11 +37,6 @@ public class Steps {
     @Then("^a can appears in the compartment$")
     public void aCanAppearsInTheCompartment() throws Throwable {
         assertThat(vendingMachine.hasCanInCompartment(), is(true));
-    }
-
-    @Given("^an empty vending machine$")
-    public void anEmptyVendingMachine() throws Throwable {
-        vendingMachine = new VendingMachine();
     }
 
     @Then("^no can appears in the compartment$")
