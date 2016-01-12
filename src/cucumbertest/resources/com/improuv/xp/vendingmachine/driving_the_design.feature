@@ -31,3 +31,10 @@ Feature: Driving the Design of our Vending Machine
     And I press the "Fanta" button
     Then a "Coke" is in the compartment
     And a "Fanta" is in the compartment
+
+  Scenario: Cans in machine get reduced
+    Given an empty vending machine
+    And 2 cans of "Coke"
+    # the following line might hurt us later when it's about paying...but we'll see later
+    When I press the "Coke" button
+    Then there is 1 cans of "Coke" left

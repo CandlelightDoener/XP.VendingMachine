@@ -24,14 +24,25 @@ public class Steps {
         vendingMachine = new VendingMachine();
     }
 
-    @And("^it ran out of \"([^\"]*)\"$")
+    @Given("^it ran out of \"([^\"]*)\"$")
     public void itRanOutOf(String drinkName) throws Throwable {
         vendingMachine.clearDrawer(drinkName);
     }
 
+    @Given("^(\\d+) cans of \"([^\"]*)\"$")
+    public void cansOf(int arg0, String arg1) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+    
     @When("^I press the \"([^\"]*)\" button$")
     public void iPressTheButton(String drinkName) throws Throwable {
         vendingMachine.pressButton(drinkName);
+    }
+
+    @When("^I clear the compartment$")
+    public void iClearTheCompartment() throws Throwable {
+        vendingMachine.clearCompartment();
     }
 
     @Then("^no can is in the compartment$")
@@ -44,8 +55,9 @@ public class Steps {
         assertThat(vendingMachine.hasCanInCompartment(drinkName), is(true));
     }
 
-    @And("^I clear the compartment$")
-    public void iClearTheCompartment() throws Throwable {
-        vendingMachine.clearCompartment();
+    @Then("^there is (\\d+) cans of \"([^\"]*)\" left$")
+    public void thereIsCansOfLeft(int amount, String drinkName) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }
