@@ -29,4 +29,11 @@ public class VendingMachine {
     public void clearCompartment() {
         compartment.clear();
     }
+
+    public int hasCansInside(String drinkName) {
+        return -1;
+    }
+
+    public void addCans(int amount, String drinkName) {
+    }
 }

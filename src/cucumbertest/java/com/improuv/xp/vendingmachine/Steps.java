@@ -30,9 +30,8 @@ public class Steps {
     }
 
     @Given("^(\\d+) cans of \"([^\"]*)\"$")
-    public void cansOf(int arg0, String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void cansOf(int amount, String drinkName) throws Throwable {
+        vendingMachine.addCans(amount, drinkName);
     }
     
     @When("^I press the \"([^\"]*)\" button$")
@@ -57,7 +56,6 @@ public class Steps {
 
     @Then("^there is (\\d+) cans of \"([^\"]*)\" left$")
     public void thereIsCansOfLeft(int amount, String drinkName) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        assertThat(vendingMachine.hasCansInside(drinkName), is(amount));
     }
 }
