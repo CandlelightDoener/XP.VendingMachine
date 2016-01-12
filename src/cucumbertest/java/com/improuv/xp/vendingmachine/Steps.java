@@ -16,6 +16,7 @@ public class Steps {
     @Given("^a filled vending machine$")
     public void aFilledVendingMachine() throws Throwable {
         vendingMachine = new VendingMachine();
+        vendingMachine.fill();
     }
 
     @When("^I press the \"([^\"]*)\" button$")
