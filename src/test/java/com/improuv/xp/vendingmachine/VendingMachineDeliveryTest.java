@@ -17,20 +17,20 @@ public class VendingMachineDeliveryTest {
 
     @Test
     public void emptyMachine_hasNothingInCompartment() throws Exception {
-        assertThat(vendingMachine.hasCanInCompartment(), is(false));
+        assertThat(vendingMachine.hasCanInCompartment("blubb"), is(false));
     }
 
     @Test
     public void emptyMachine_deliversNothing_whenButtonPressed() throws Exception {
         vendingMachine.pressButton("blubb");
-        assertThat(vendingMachine.hasCanInCompartment(), is(false));
+        assertThat(vendingMachine.hasCanInCompartment("blubb"), is(false));
     }
 
     @Test
     public void filledMachine_deliversAnything_whenButtonPresssed() throws Exception {
         vendingMachine.fill();
         vendingMachine.pressButton("blubb 1234 :-)");
-        assertThat(vendingMachine.hasCanInCompartment(), is(true));
+        assertThat(vendingMachine.hasCanInCompartment("blubb 1234 :-)"), is(true));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class VendingMachineDeliveryTest {
         vendingMachine.fill();
         vendingMachine.clearDrawer("asdf");
         vendingMachine.pressButton("asdf");
-        assertThat(vendingMachine.hasCanInCompartment(), is(false));
+        assertThat(vendingMachine.hasCanInCompartment("asdf"), is(false));
     }
 
     @Test
@@ -46,6 +46,6 @@ public class VendingMachineDeliveryTest {
         vendingMachine.fill();
         vendingMachine.clearDrawer("aaa");
         vendingMachine.pressButton("bbb");
-        assertThat(vendingMachine.hasCanInCompartment(), is(true));
+        assertThat(vendingMachine.hasCanInCompartment("aaa"), is(false));
     }
 }

@@ -34,11 +34,6 @@ public class Steps {
         vendingMachine.pressButton(drinkName);
     }
 
-    @Then("^a can appears in the compartment$")
-    public void aCanAppearsInTheCompartment() throws Throwable {
-        assertThat(vendingMachine.hasCanInCompartment(), is(true));
-    }
-
     @Then("^no can appears in the compartment$")
     public void noCanAppearsInTheCompartment() throws Throwable {
         assertThat(vendingMachine.hasCanInCompartment(), is(false));

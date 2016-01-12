@@ -10,10 +10,7 @@ public class VendingMachine {
     }
 
     public boolean hasCanInCompartment() {
-        if (buttonPressed != null && buttonPressed.equals(emptyDrawer)) {
-            return false;
-        }
-        return filled;
+        return hasCanInCompartment(buttonPressed);
     }
 
     public void fill() {
@@ -25,6 +22,8 @@ public class VendingMachine {
     }
 
     public boolean hasCanInCompartment(String drinkName) {
-        return true;
+        if(filled && buttonPressed != null && !buttonPressed.equals(emptyDrawer) && buttonPressed.equals(drinkName))
+            return true;
+        return false;
     }
 }
