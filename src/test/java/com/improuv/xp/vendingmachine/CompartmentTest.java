@@ -44,4 +44,12 @@ public class CompartmentTest {
         compartment.clear();
         assertThat(compartment.hasCan("blubb"), is(false));
     }
+
+    @Test
+    public void canHoldMultipleCans() throws Exception {
+        compartment.add("aaa");
+        compartment.add("bbb");
+        assertThat(compartment.hasCan("aaa"), is(true));
+        assertThat(compartment.hasCan("bbb"), is(true));
+    }
 }

@@ -1,22 +1,25 @@
 package com.improuv.xp.vendingmachine;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Compartment {
 
-    private String content;
+    private Set<String> content = new HashSet<String>();
 
     public void add(String drinkName) {
-        content = drinkName;
+        content.add(drinkName);
     }
 
     public boolean isEmpty() {
-        return content == null;
+        return content.isEmpty();
     }
 
     public boolean hasCan(String drinkName) {
-        return drinkName.equals(content);
+        return content.contains(drinkName);
     }
 
     public void clear() {
-        content = null;
+        content.clear();
     }
 }
